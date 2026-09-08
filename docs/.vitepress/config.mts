@@ -45,7 +45,8 @@ function partLabel(p: number, en = false): string {
 // 去掉标题尾部"—— 一句话扩展"与"（English）"，得到侧栏短名（见 docs/title-spec.md）
 function shorten(text: string): string {
   return text
-    .replace(/\s*——.*$/, '')
+    .replace(/\s*——.*$/, '')       // zh subtitle separator
+    .replace(/\s+—\s+.*$/, '')     // en subtitle separator (single em dash)
     .replace(/\s*（[^）]*）\s*$/, '')
     .trim()
 }
@@ -190,6 +191,7 @@ export default defineConfig({
       label: 'English',
       lang: 'en-US',
       title: 'Agent System Course',
+      description: 'Build your own agent harness from scratch and ship it to v0.2',
       themeConfig: enThemeConfig,
     },
   },

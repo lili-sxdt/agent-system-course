@@ -12,6 +12,7 @@ title: "Appendix A · Glossary"
 
 | Plain term | Technical term | One-line explanation | Ch. |
 |---|---|---|---|
+| the thing that gets things done | Agent | an LLM plus a surrounding layer that lets it perceive, call tools, and loop toward a goal | 0-1 |
 | memory | Context | everything the model can "see" each turn | 0-3, 1-1 |
 | brain | LLM | the model that understands, reasons, and generates | 0-3, 1-2 |
 | hands | Tool | an external capability the model can call | 0-3, 1-3 |
