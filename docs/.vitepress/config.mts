@@ -106,9 +106,8 @@ const zhThemeConfig = {
   nav: [
     { text: '首页', link: '/' },
     { text: '开始阅读', link: '/learn/part-0/01' },
-    { text: '版本说明', link: '/version-status' },
-    { text: '标题规范', link: '/title-spec' },
     { text: '附录', link: '/appendix/a-glossary' },
+    { text: 'English', link: '/en/' },
   ],
   sidebar: {
     '/learn/': genLearnSidebar(''),
