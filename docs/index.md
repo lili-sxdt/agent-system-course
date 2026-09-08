@@ -9,8 +9,8 @@ hero:
       text: 开始阅读
       link: /learn/part-0/01
     - theme: alt
-      text: 查看目录
-      link: /course-catalog-v3
+      text: English
+      link: /en/
 features:
   - icon: 🧩
     title: 从会用 → 会写
