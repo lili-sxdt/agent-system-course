@@ -5,7 +5,7 @@ hero:
   text: Build an Agent from Zero
   tagline: Using DeepSeek Harness as a reference — from concepts to tools, memory, security, and release; build your own to v0.2.
   image:
-    src: /mini-harness/logo.svg
+    src: /logo.svg
     alt: Mini-Harness
   actions:
     - theme: brand

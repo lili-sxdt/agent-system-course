@@ -5,7 +5,7 @@ hero:
   text: 从零搭建智能体
   tagline: 以 DeepSeek Harness 为参照，从概念到工具、记忆、安全与发布，亲手搭出你的 v0.1 → v0.2
   image:
-    src: /mini-harness/logo.svg
+    src: /logo.svg
     alt: Mini-Harness
   actions:
     - theme: brand
