@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lili-sxdt.github.io/mini-harness/sitemap.xml

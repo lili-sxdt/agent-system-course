@@ -187,9 +187,18 @@ export default defineConfig({
     ['meta', { property: 'og:url', content: 'https://lili-sxdt.github.io/mini-harness/' }],
     ['meta', { property: 'og:image', content: 'https://lili-sxdt.github.io/mini-harness/share.png' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['script', { type: 'application/ld+json' }, '{"@context":"https://schema.org","@type":"WebSite","name":"Mini-Harness","description":"从零搭建智能体系统（Agent Harness），并发布维护到 v0.2","url":"https://lili-sxdt.github.io/mini-harness/","inLanguage":["zh-CN","en"]}'],
   ],
   // 关闭内容区顶部"本节导航"下拉（节导航已并入左侧三级侧栏）
   outline: false,
+  // canonical：每页自引用，避免中英/路径重复内容在搜索端分裂
+  transformHead({ pageData }) {
+    const rel = (pageData.relativePath || 'index.md').replace(/\.md$/, '')
+    const noIndex = rel.replace(/index$/, '')
+    const dir = noIndex ? '/' + noIndex.replace(/\/$/, '') : ''
+    const href = 'https://lili-sxdt.github.io/mini-harness' + dir + '/'
+    return [['link', { rel: 'canonical', href }]]
+  },
   locales: {
     root: {
       label: '中文',
