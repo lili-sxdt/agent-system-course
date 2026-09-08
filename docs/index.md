@@ -33,5 +33,3 @@ features:
 - **技术栈**：Node + TypeScript（与 DSH 同栈，概念直接对应 DSH 源码）。
 
 **快捷入口**：[开始阅读](/learn/part-0/01) · [术语表](/appendix/a-glossary) · [English](/en/)
-
-> ⚠️ 本课程站基于开源 **DeepSeek Harness**（MIT License, Copyright © 2026 DeepSeek）学习与衍生，是第三方非官方课程，不代表上游项目。

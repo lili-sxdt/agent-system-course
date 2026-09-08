@@ -33,5 +33,3 @@ features:
 - **Tech stack**: Node + TypeScript (the same stack as DSH, so concepts map directly onto the DSH source).
 
 **Quick links**: [Start reading](/en/learn/part-0/01) · [Glossary](/en/appendix/a-glossary) · [中文版](/)
-
-> ⚠️ This site is based on the open-source **DeepSeek Harness** (MIT License, Copyright © 2026 DeepSeek) for learning and derivation. It is a third-party, unofficial course and does not represent the upstream project.
