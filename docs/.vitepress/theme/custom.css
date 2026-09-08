@@ -1,0 +1,6 @@
+/* 课程站基础样式：长侧栏条目截断 + 激活高亮 */
+.VPSidebarItem .VPLink p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
