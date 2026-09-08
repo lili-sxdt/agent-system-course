@@ -47,6 +47,7 @@ export default defineConfig({
       { text: '开始阅读', link: '/learn/part-0/01' },
       { text: '版本说明', link: '/version-status' },
       { text: '标题规范', link: '/title-spec' },
+      { text: '附录', link: '/appendix/a-glossary' },
     ],
     sidebar: {
       '/learn/': [
@@ -118,6 +119,17 @@ export default defineConfig({
           chapter(6, '再发布 v0.2', '/learn/part-9/06'),
           chapter(7, '复盘与进入下一轮', '/learn/part-9/07'),
         ]),
+      ],
+      '/appendix/': [
+        {
+          text: '附录',
+          items: [
+            { text: 'A · 术语对照表', link: '/appendix/a-glossary' },
+            { text: 'B · API 与配置参考', link: '/appendix/b-api-config' },
+            { text: 'C · DSH 源码查字典', link: '/appendix/c-dsh-source-index' },
+            { text: 'D · 差异化作证', link: '/appendix/d-differentiation' },
+          ],
+        },
       ],
     },
     socialLinks: [],

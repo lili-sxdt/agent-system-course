@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" width="100%" font-family="system-ui,'Microsoft YaHei',sans-serif" role="img" aria-label="Agent 核心循环">
+  <rect x="0" y="0" width="980" height="300" fill="#f8fafc" rx="12"/>
+  <text x="490" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">核心循环：想 → 要工具 → 做 → 塞回去 → 再想</text>
+
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <rect x="30"  y="70" width="205" height="100" rx="12" fill="#ffffff"/>
+    <rect x="262" y="70" width="205" height="100" rx="12" fill="#ffffff"/>
+    <rect x="494" y="70" width="205" height="100" rx="12" fill="#ffffff"/>
+    <rect x="726" y="70" width="205" height="100" rx="12" fill="#ffffff"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="132" y="108" font-size="17" font-weight="700" fill="#0f172a">① 想</text>
+    <text x="132" y="134" font-size="13" fill="#475569">把上下文交给模型</text>
+    <text x="364" y="108" font-size="17" font-weight="700" fill="#0f172a">② 要工具</text>
+    <text x="364" y="134" font-size="13" fill="#475569">模型给出调用意图</text>
+    <text x="596" y="108" font-size="17" font-weight="700" fill="#0f172a">③ 做</text>
+    <text x="596" y="134" font-size="13" fill="#475569">程序真的执行工具</text>
+    <text x="828" y="108" font-size="17" font-weight="700" fill="#0f172a">④ 塞回去</text>
+    <text x="828" y="134" font-size="13" fill="#475569">结果加回上下文</text>
+  </g>
+
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#ar)">
+    <line x1="237" y1="120" x2="258" y2="120"/>
+    <line x1="469" y1="120" x2="490" y2="120"/>
+    <line x1="701" y1="120" x2="722" y2="120"/>
+  </g>
+
+  <!-- 回环箭头 -->
+  <path d="M828,170 C828,230 132,230 132,175" stroke="#2563eb" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <text x="480" y="248" text-anchor="middle" font-size="13" fill="#2563eb">还有工具要用 → 继续转；不再要工具 → 收尾给答案</text>
+</svg>

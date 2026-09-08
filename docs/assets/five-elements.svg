@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 210" width="100%" font-family="system-ui,'Microsoft YaHei',sans-serif" role="img" aria-label="Agent 系统五要素">
+  <rect x="0" y="0" width="960" height="210" fill="#f8fafc" rx="12"/>
+  <text x="480" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Agent 系统的五要素</text>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <rect x="20"  y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="208" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="396" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="584" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="772" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="104" y="92"  font-size="20" font-weight="700" fill="#0f172a">上下文</text>
+    <text x="104" y="116" font-size="13" fill="#64748b">Context</text>
+    <text x="104" y="146" font-size="15" fill="#2563eb">记忆</text>
+
+    <text x="292" y="92"  font-size="20" font-weight="700" fill="#0f172a">模型</text>
+    <text x="292" y="116" font-size="13" fill="#64748b">LLM</text>
+    <text x="292" y="146" font-size="15" fill="#2563eb">脑子</text>
+
+    <text x="480" y="92"  font-size="20" font-weight="700" fill="#0f172a">工具</text>
+    <text x="480" y="116" font-size="13" fill="#64748b">Tool</text>
+    <text x="480" y="146" font-size="15" fill="#2563eb">手</text>
+
+    <text x="668" y="92"  font-size="20" font-weight="700" fill="#0f172a">循环</text>
+    <text x="668" y="116" font-size="13" fill="#64748b">Loop</text>
+    <text x="668" y="146" font-size="15" fill="#2563eb">做事方式</text>
+
+    <text x="856" y="92"  font-size="20" font-weight="700" fill="#0f172a">人设</text>
+    <text x="856" y="116" font-size="13" fill="#64748b">Persona</text>
+    <text x="856" y="146" font-size="15" fill="#2563eb">性格与边界</text>
+  </g>
+</svg>

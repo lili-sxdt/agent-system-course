@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" width="100%" font-family="system-ui,'Microsoft YaHei',sans-serif" role="img" aria-label="发布后生命周期">
+  <rect x="0" y="0" width="900" height="250" fill="#f8fafc" rx="12"/>
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">发布后生命周期：v0.1 → v0.2 → 下一轮</text>
+
+  <defs>
+    <marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <rect x="20"  y="80" width="128" height="70" rx="10" fill="#dbeafe"/>
+    <rect x="168" y="80" width="128" height="70" rx="10" fill="#ffffff"/>
+    <rect x="316" y="80" width="128" height="70" rx="10" fill="#ffffff"/>
+    <rect x="464" y="80" width="128" height="70" rx="10" fill="#ffffff"/>
+    <rect x="612" y="80" width="128" height="70" rx="10" fill="#ffffff"/>
+    <rect x="760" y="80" width="120" height="70" rx="10" fill="#dbeafe"/>
+  </g>
+
+  <g text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">
+    <text x="84"  y="112">发布 v0.1</text>
+    <text x="232" y="112">收集反馈</text>
+    <text x="380" y="112">验证</text>
+    <text x="528" y="112">维护</text>
+    <text x="676" y="112">修改</text>
+    <text x="820" y="112">再发布 v0.2</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#a3)">
+    <line x1="148" y1="115" x2="166" y2="115"/>
+    <line x1="296" y1="115" x2="314" y2="115"/>
+    <line x1="444" y1="115" x2="462" y2="115"/>
+    <line x1="592" y1="115" x2="610" y2="115"/>
+    <line x1="740" y1="115" x2="758" y2="115"/>
+  </g>
+
+  <path d="M820,150 C820,205 84,205 84,155" stroke="#2563eb" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#a3)"/>
+  <text x="450" y="228" text-anchor="middle" font-size="13" fill="#2563eb">持续闭环：每个版本都在这个循环里转</text>
+</svg>
