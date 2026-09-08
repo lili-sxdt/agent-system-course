@@ -70,34 +70,56 @@ function extractH2(text: string): string[] {
   return out
 }
 
-// 生成某语言的学习区三级侧栏；langSubDir: '' = 中文(root)，'en' = 英文
+// 生成某语言的学习区侧栏：预备 + 主线(部分→章→节) + 实践(按部分)；langSubDir: ''=中文(root), 'en'=英文
 function genLearnSidebar(langSubDir: string) {
   const LEARN_DIR = path.join(DOCS_DIR, langSubDir ? `${langSubDir}/learn` : 'learn')
-  const prefix = langSubDir ? `/${langSubDir}/learn/part-` : '/learn/part-'
+  const prefixBase = langSubDir ? `/${langSubDir}/learn/` : '/learn/'
+  const isEn = langSubDir === 'en'
+
+  const mapChapters = (dir: string, prefix: string, collapsed = true) =>
+    fs.readdirSync(dir).filter((f) => f.endsWith('.md')).sort().map((f) => {
+      const stem = path.parse(f).name
+      const content = fs.readFileSync(path.join(dir, f), 'utf8')
+      const shortName = shorten(extractH1(content))
+      const sections = extractH2(content)
+      return {
+        text: shortName,
+        link: `${prefix}${stem}`,
+        collapsed,
+        items: sections.map((s, i) => ({ text: shorten(s), link: `${prefix}${stem}#sec-${i + 1}` })),
+      }
+    })
+
   const groups: any[] = []
+
+  // 预备区（最前）
+  const prepDir = path.join(LEARN_DIR, 'part-pre')
+  if (fs.existsSync(prepDir)) {
+    groups.push({ text: isEn ? 'Prep · JS/TS Quick Start' : '预备 · JS/TS 快速上手', collapsed: false, items: mapChapters(prepDir, prefixBase + 'part-pre/') })
+  }
+
+  // 主线（部分→章→节）
   for (const p of Object.keys(PART_TITLES).map(Number).sort((a, b) => a - b)) {
     const dir = path.join(LEARN_DIR, `part-${p}`)
     if (!fs.existsSync(dir)) continue
-    const chapters = fs.readdirSync(dir)
-      .filter((f) => f.endsWith('.md'))
-      .sort()
-      .map((f) => {
-        const stem = path.parse(f).name
-        const content = fs.readFileSync(path.join(dir, f), 'utf8')
-        const shortName = shorten(extractH1(content))
-        const sections = extractH2(content)
-        return {
-          text: shortName,
-          link: `${prefix}${p}/${stem}`,
-          collapsed: true,
-          items: sections.map((s, i) => ({
-            text: shorten(s),
-            link: `${prefix}${p}/${stem}#sec-${i + 1}`,
-          })),
-        }
-      })
-    groups.push({ text: partLabel(p, langSubDir === 'en'), collapsed: true, items: chapters })
+    groups.push({ text: partLabel(p, isEn), collapsed: true, items: mapChapters(dir, prefixBase + `part-${p}/`) })
   }
+
+  // 实践线（按部分）
+  const pracRoot = path.join(LEARN_DIR, 'practice')
+  if (fs.existsSync(pracRoot)) {
+    const pracGroups = fs.readdirSync(pracRoot)
+      .filter((d) => d.startsWith('part-'))
+      .sort()
+      .map((d) => {
+        const num = parseInt(d.replace('part-', ''), 10)
+        const dir = path.join(pracRoot, d)
+        const label = isEn ? `Part ${num} · Practice` : `第${num === 0 ? '〇' : num}部分 · 实践`
+        return { text: label, collapsed: true, items: mapChapters(dir, prefixBase + `practice/${d}/`) }
+      })
+    groups.push({ text: isEn ? 'Practice · Follow-Along' : '实践 · 跟着做', collapsed: false, items: pracGroups })
+  }
+
   return groups
 }
 
@@ -106,6 +128,8 @@ const zhThemeConfig = {
   nav: [
     { text: '首页', link: '/' },
     { text: '开始阅读', link: '/learn/part-0/01' },
+    { text: '预备', link: '/learn/part-pre/00' },
+    { text: '实践', link: '/learn/practice/part-1/01' },
     { text: '版本说明', link: '/version-status' },
     { text: '附录', link: '/appendix/a-glossary' },
     { text: 'English', link: '/en/' },
@@ -139,6 +163,8 @@ const enThemeConfig = {
   nav: [
     { text: 'Home', link: '/en/' },
     { text: 'Start reading', link: '/en/learn/part-0/01' },
+    { text: 'Prep', link: '/en/learn/part-pre/00' },
+    { text: 'Practice', link: '/en/learn/practice/part-1/01' },
     { text: 'Version', link: '/en/version-status' },
     { text: 'Appendix', link: '/en/appendix/a-glossary' },
     { text: '中文版', link: '/' },
