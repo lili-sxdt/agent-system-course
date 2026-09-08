@@ -10,15 +10,17 @@ title: Version Status
 
 | Item | Value |
 |---|---|
-| **Course version** | v0.1 (initial; 48 chapters of content complete) |
+| **Course version** | v0.1 (initial; 48 main chapters + Prep + Practice) |
 | **Aligned DSH version** | `0.1.3-alpha.2` (at the time of writing) |
-| **Content size** | 10 parts · 48 chapters · about 88k Chinese characters |
+| **Content size** | main line 10 parts · 48 chapters + Prep + Practice · about 90k characters |
 | **Last updated** | see the page footer (auto-taken from the latest commit) |
 
 ## Content scope
 
-- **Parts 0–8**: from concepts to building a publishable v0.1 mini-harness.
-- **Part 9**: post-release lifecycle (v0.1 → v0.2).
+- **Prep**: JS/TS/Node quick start (environment + syntax, with Python/R reference).
+- **Main · Parts 0–8**: from concepts to building a publishable v0.1 mini-harness.
+- **Main · Part 9**: post-release lifecycle (v0.1 → v0.2).
+- **Practice**: follow-along (examples ladder + variant exercises + pattern cards), organized by part.
 - **Appendices A–D**: glossary / API reference / DSH source lookup / evidence of differentiation.
 
 ## Version-alignment note

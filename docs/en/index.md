@@ -28,8 +28,8 @@ features:
 
 ## About this course
 
-- **10 parts · 48 chapters**, from concepts to a publishable v0.1 mini-harness and its post-release lifecycle (v0.1 → v0.2).
-- Every chapter uses a five-part pattern: **plain-language intro → minimal runnable example → professional definition → hands-on exercise → acceptance checklist**.
+- **Three tracks**: **Prep** (JS/TS/Node quick start) → **Main** (**10 parts · 48 chapters**, from concepts to a publishable v0.1 mini-harness and its post-release lifecycle) → **Practice** (follow-along: examples ladder + variant exercises).
+- Every main chapter uses a five-part pattern: **plain-language intro → minimal runnable example → professional definition → hands-on exercise → acceptance checklist**.
 - **Tech stack**: Node + TypeScript (the same stack as DSH, so concepts map directly onto the DSH source).
 
-**Quick links**: [Start reading](/en/learn/part-0/01) · [Glossary](/en/appendix/a-glossary) · [中文版](/)
+**Quick links**: [Prep](/en/learn/part-pre/00) · [Start reading](/en/learn/part-0/01) · [Practice](/en/learn/practice/part-1/01) · [中文版](/)
