@@ -29,6 +29,8 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
+      - name: Validate H2 anchors (sidebar integrity)
+        run: node scripts/check-anchors.mjs
       - name: Build site
         run: npm run docs:build
       - name: Upload Pages artifact
