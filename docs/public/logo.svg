@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Mini-Harness logo">
+  <!-- harness ring (the framework of tools) -->
+  <circle cx="120" cy="120" r="84" fill="none" stroke="#cbd5e1" stroke-width="12"/>
+  <!-- tool nodes on the harness ring -->
+  <circle cx="120" cy="36" r="16" fill="#94a3b8"/>
+  <circle cx="47" cy="163" r="16" fill="#94a3b8"/>
+  <circle cx="193" cy="163" r="16" fill="#94a3b8"/>
+  <!-- agent core -->
+  <circle cx="120" cy="120" r="50" fill="#2563eb"/>
+  <!-- agent loop (white circular arrow) -->
+  <path d="M120,98 A22,22 0 1 0 142,106" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M142,106 l-2,15 -14,-2" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
