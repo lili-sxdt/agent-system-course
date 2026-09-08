@@ -47,7 +47,8 @@ function shorten(text: string): string {
   return text
     .replace(/\s*——.*$/, '')       // zh subtitle separator
     .replace(/\s+—\s+.*$/, '')     // en subtitle separator (single em dash)
-    .replace(/\s*（[^）]*）\s*$/, '')
+    .replace(/\s*（[^）]*）\s*$/, '')  // full-width parenthetical
+    .replace(/\s*\([^)]*\)\s*$/, '')   // half-width parenthetical
     .trim()
 }
 
