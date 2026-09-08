@@ -106,6 +106,7 @@ const zhThemeConfig = {
   nav: [
     { text: '首页', link: '/' },
     { text: '开始阅读', link: '/learn/part-0/01' },
+    { text: '版本说明', link: '/version-status' },
     { text: '附录', link: '/appendix/a-glossary' },
     { text: 'English', link: '/en/' },
   ],
@@ -138,6 +139,7 @@ const enThemeConfig = {
   nav: [
     { text: 'Home', link: '/en/' },
     { text: 'Start reading', link: '/en/learn/part-0/01' },
+    { text: 'Version', link: '/en/version-status' },
     { text: 'Appendix', link: '/en/appendix/a-glossary' },
     { text: '中文版', link: '/' },
   ],
