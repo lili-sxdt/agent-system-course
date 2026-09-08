@@ -25,3 +25,13 @@ features:
     title: 一路到 v0.2
     details: 不止造出来，还会发出去、收反馈、验证、维护、再发布——走完真实生命周期。
 ---
+
+## 关于本课
+
+- **10 部分 · 48 章**，从概念到可发布的 v0.1 mini-harness，再到它的发布后生命周期（v0.1 → v0.2）。
+- 每章用五件套：**大白话引入 → 最小可运行示例 → 专业定义 → 动手练 → 验收清单**。
+- **技术栈**：Node + TypeScript（与 DSH 同栈，概念直接对应 DSH 源码）。
+
+**快捷入口**：[开始阅读](/learn/part-0/01) · [术语表](/appendix/a-glossary) · [English](/en/)
+
+> ⚠️ 本课程站基于开源 **DeepSeek Harness**（MIT License, Copyright © 2026 DeepSeek）学习与衍生，是第三方非官方课程，不代表上游项目。
