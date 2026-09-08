@@ -1,13 +1,19 @@
 import { defineConfig } from 'vitepress'
 import { execSync } from 'node:child_process'
 
-// "最后更新" = 仓库最近一次提交日期（每次构建自动刷新，无需手动改）
+// "最后更新" = 仓库最近一次提交日期+时刻（每次构建自动刷新，无需手动改）
+// 用 %cI（带时区 ISO）再取出 YYYY-MM-DD HH:MM，规避 Windows 对 % 的解析坑；保留作者本地时区（不按构建机 UTC 转，否则差 8 小时）
 function lastUpdated(): string {
+  const pad = (n: number) => String(n).padStart(2, '0')
   try {
-    const d = execSync('git log -1 --format=%cs', { cwd: process.cwd() }).toString().trim()
-    return d || new Date().toISOString().slice(0, 10)
+    const raw = execSync('git log -1 --format=%cI', { cwd: process.cwd() }).toString().trim()
+    const m = raw.match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/)
+    if (m) return `${m[1]} ${m[2]}:${m[3]}`
+    const d = new Date()
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
   } catch {
-    return new Date().toISOString().slice(0, 10)
+    const d = new Date()
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
   }
 }
 
