@@ -1,9 +1,9 @@
 ---
 layout: home
 hero:
-  name: Agent System Course
-  text: Build an Agent System from Zero
-  tagline: Teach yourself, from zero, to write an agent harness system like DeepSeek Harness, and publish & maintain it up to v0.2.
+  name: Mini-Harness
+  text: Build an Agent from Zero
+  tagline: Using DeepSeek Harness as a reference — from concepts to tools, memory, security, and release; build your own to v0.2.
   actions:
     - theme: brand
       text: Start reading

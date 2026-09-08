@@ -129,7 +129,7 @@ const zhThemeConfig = {
   docFooter: { prev: '上一章', next: '下一章' },
   footer: {
     message: `内容更新至 ${lastUpdated()} · 课程内容基于 DeepSeek Harness（MIT License, Copyright © 2026 DeepSeek）学习与衍生`,
-    copyright: '© 2026 Agent 系统课程',
+    copyright: '© 2026 Mini-Harness',
   },
   lastUpdated: true,
 }
@@ -170,29 +170,29 @@ const enThemeConfig = {
   docFooter: { prev: 'Previous', next: 'Next' },
   footer: {
     message: `Content updated ${lastUpdated()} · Based on DeepSeek Harness (MIT License, Copyright © 2026 DeepSeek) for learning and derivation`,
-    copyright: '© 2026 Agent System Course',
+    copyright: '© 2026 Mini-Harness',
   },
   lastUpdated: true,
 }
 
 export default defineConfig({
-  base: '/agent-system-course/',
-  title: 'Agent 系统课程',
-  description: '从零到能自己编写一个 Agent Harness 系统，并发布维护到 v0.2',
+  base: '/mini-harness/',
+  title: 'Mini-Harness',
+  description: '从零搭建智能体系统（Agent Harness），并发布维护到 v0.2',
   // 关闭内容区顶部"本节导航"下拉（节导航已并入左侧三级侧栏）
   outline: false,
   locales: {
     root: {
       label: '中文',
       lang: 'zh-CN',
-      title: 'Agent 系统课程',
+      title: 'Mini-Harness',
       themeConfig: zhThemeConfig,
     },
     en: {
       label: 'English',
       lang: 'en-US',
-      title: 'Agent System Course',
-      description: 'Build your own agent harness from scratch and ship it to v0.2',
+      title: 'Mini-Harness',
+      description: 'Build your own agent system from zero and ship it to v0.2',
       themeConfig: enThemeConfig,
     },
   },

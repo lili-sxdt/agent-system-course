@@ -37,4 +37,4 @@ title: 版本说明
 ## 参考
 
 - 上游：[deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)（MIT License）
-- 本课程站源码：[agent-system-course](https://github.com/lili-sxdt/agent-system-course)
+- 本课程站源码：[Mini-Harness](https://github.com/lili-sxdt/mini-harness)

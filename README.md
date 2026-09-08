@@ -29,7 +29,7 @@
 ## 目录结构
 
 ```
-agent-system-course/
+mini-harness/
 ├── docs/
 │   ├── index.md                # 首页
 │   ├── learn/part-0 … part-9/  # 48 章正文

@@ -1,9 +1,9 @@
 ---
 layout: home
 hero:
-  name: Agent 系统课程
-  text: 从零到能自己编写
-  tagline: 把 DeepSeek Harness 这类 Agent Harness 系统讲明白，并亲手搭出你的 v0.1 → v0.2
+  name: Mini-Harness
+  text: 从零搭建智能体
+  tagline: 以 DeepSeek Harness 为参照，从概念到工具、记忆、安全与发布，亲手搭出你的 v0.1 → v0.2
   actions:
     - theme: brand
       text: 开始阅读
