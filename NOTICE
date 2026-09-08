@@ -1,0 +1,29 @@
+Agent 系统课程 · 归属与来源声明（NOTICE）
+==========================================
+
+本仓库（agent-system-course）是一套中文教学课程，教读者从零理解并编写一个
+与 DeepSeek Harness（DSH）同类的 Agent 系统。
+
+一、上游依赖与引用
+------------------
+本课程的教学内容参考并引用了以下开源项目：
+
+  项目：DeepSeek Harness
+  仓库：https://github.com/deepseek-ai/deepseek-harness
+  许可：MIT License
+  版权：Copyright (c) 2026 DeepSeek
+
+说明：
+- 本仓库**不打包、不再分发** DeepSeek Harness 的源代码。
+- 课程中的示例代码为本课程原创的"示意/最小实现"，用于讲解概念，非 DSH 源码。
+- 文中涉及的 DSH 包名、接口与许可信息为教学说明与引用，权利归原项目所有。
+- 若复用 DSH 的"实质性代码片段"，须保留其 MIT 版权与许可声明并注明来源。
+
+二、本仓库内容许可
+------------------
+课程正文、附录、配图与站点代码采用 MIT License 发布（详见 LICENSE）。
+
+三、数量类事实的核对
+--------------------
+文中"222 个 dsh-* 包""全部 MIT 许可"等数量/许可断言，核对自 DSH 仓库的
+packages 目录与各包 LICENSE；DSH 迭代较快，数量变化时以官方仓库为准。

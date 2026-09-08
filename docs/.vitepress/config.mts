@@ -137,7 +137,7 @@ export default defineConfig({
     docFooter: { prev: '上一章', next: '下一章' },
     outlineTitle: '本节导航',
     footer: {
-      message: `内容更新至 ${lastUpdated()}`,
+      message: `内容更新至 ${lastUpdated()} · 课程内容基于 DeepSeek Harness（MIT License, Copyright © 2026 DeepSeek）学习与衍生`,
       copyright: '© 2026 Agent 系统课程',
     },
     lastUpdated: true,
