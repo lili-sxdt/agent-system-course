@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" font-family="system-ui,sans-serif" role="img" aria-label="mini-harness system architecture">
+  <rect x="0" y="0" width="900" height="480" fill="#f8fafc" rx="12"/>
+  <text x="450" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">mini-harness system architecture</text>
+
+  <defs>
+    <marker id="a2e" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <rect x="360" y="42"  width="180" height="54" rx="10" fill="#dbeafe"/>
+    <rect x="150" y="140" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="360" y="140" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="570" y="140" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="360" y="238" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="360" y="318" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="360" y="398" width="180" height="54" rx="10" fill="#ffffff"/>
+    <rect x="630" y="318" width="180" height="54" rx="10" fill="#ffffff"/>
+  </g>
+
+  <g text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">
+    <text x="450" y="75">user / frontend</text>
+    <text x="240" y="173">session / context</text>
+    <text x="450" y="173">core loop</text>
+    <text x="660" y="173">model</text>
+    <text x="450" y="271">tools</text>
+    <text x="450" y="351">sandbox / permissions</text>
+    <text x="450" y="431">filesystem</text>
+    <text x="720" y="351">logging / monitoring</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#a2e)">
+    <line x1="450" y1="96"  x2="450" y2="138"/>
+    <line x1="450" y1="194" x2="450" y2="236"/>
+    <line x1="450" y1="292" x2="450" y2="316"/>
+    <line x1="450" y1="372" x2="450" y2="396"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="330" y1="167" x2="360" y2="167"/>
+    <line x1="540" y1="167" x2="570" y2="167"/>
+  </g>
+  <line x1="540" y1="345" x2="630" y2="345" stroke="#94a3b8" stroke-width="2" fill="none"/>
+
+  <g font-size="11" fill="#64748b" text-anchor="middle">
+    <text x="345" y="160">context</text>
+    <text x="555" y="160">call model</text>
+    <text x="585" y="338">audit</text>
+  </g>
+</svg>

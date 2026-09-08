@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 210" width="100%" font-family="system-ui,sans-serif" role="img" aria-label="The five elements of an agent system">
+  <rect x="0" y="0" width="960" height="210" fill="#f8fafc" rx="12"/>
+  <text x="480" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">The Five Elements of an Agent System</text>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <rect x="20"  y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="208" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="396" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="584" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+    <rect x="772" y="56" width="168" height="120" rx="12" fill="#ffffff"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="104" y="100" font-size="19" font-weight="700" fill="#0f172a">Context</text>
+    <text x="104" y="140" font-size="15" fill="#2563eb">memory</text>
+
+    <text x="292" y="100" font-size="19" font-weight="700" fill="#0f172a">Model</text>
+    <text x="292" y="140" font-size="15" fill="#2563eb">brain</text>
+
+    <text x="480" y="100" font-size="19" font-weight="700" fill="#0f172a">Tool</text>
+    <text x="480" y="140" font-size="15" fill="#2563eb">hands</text>
+
+    <text x="668" y="100" font-size="19" font-weight="700" fill="#0f172a">Loop</text>
+    <text x="668" y="140" font-size="15" fill="#2563eb">way of working</text>
+
+    <text x="856" y="100" font-size="19" font-weight="700" fill="#0f172a">Persona</text>
+    <text x="856" y="140" font-size="15" fill="#2563eb">boundaries</text>
+  </g>
+</svg>
