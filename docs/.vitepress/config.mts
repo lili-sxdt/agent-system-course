@@ -1,4 +1,15 @@
 import { defineConfig } from 'vitepress'
+import { execSync } from 'node:child_process'
+
+// "最后更新" = 仓库最近一次提交日期（每次构建自动刷新，无需手动改）
+function lastUpdated(): string {
+  try {
+    const d = execSync('git log -1 --format=%cs', { cwd: process.cwd() }).toString().trim()
+    return d || new Date().toISOString().slice(0, 10)
+  } catch {
+    return new Date().toISOString().slice(0, 10)
+  }
+}
 
 // 侧栏短名规范见 docs/title-spec.md：侧栏只进两级（部分→章），用短名；页面 H1 用全名。
 // 章以下（节/小节）由页面内大纲（outline）自动生成，不写进侧栏。
@@ -107,6 +118,10 @@ export default defineConfig({
     search: { provider: 'local' },
     docFooter: { prev: '上一章', next: '下一章' },
     outlineTitle: '本节导航',
+    footer: {
+      message: `内容更新至 ${lastUpdated()}`,
+      copyright: '© 2026 Agent 系统课程',
+    },
     lastUpdated: true,
   },
 })
