@@ -1,0 +1,50 @@
+name: Upstream Version List Auto-Update
+
+# 每天检测 DeepSeek-Harness 上游新版本（GitHub Releases + npm），自动更新「上游版本列表」并重新发布站点。
+# 说明：更新版本列表会提交到当前分支（master）。因为本工作流只在 schedule / workflow_dispatch 触发，
+#       不会因 push 递归触发；且部署工作流 deploy.yml 在 push: branches:[master] 时自动触发，故这里
+#       git push 后无需再显式 gh workflow run deploy——由 push 触发一次部署即可（避免重复跑批）。
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: version-list
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Detect upstream releases and update version list
+        run: python scripts/check_upstream.py --apply
+
+      - name: Commit and push (deploy triggers on push)
+        run: |
+          git add docs/upstream-version.md state/last_seen.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "docs(upstream): auto-update DSH version list"
+            git push
+            echo "Committed and pushed; deploy should trigger on push."
+          else
+            echo "No new version; skipping."
+          fi
