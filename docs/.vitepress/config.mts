@@ -180,6 +180,14 @@ export default defineConfig({
   base: '/mini-harness/',
   title: 'Mini-Harness',
   description: '从零搭建智能体系统（Agent Harness），并发布维护到 v0.2',
+  head: [
+    ['meta', { property: 'og:title', content: 'Mini-Harness' }],
+    ['meta', { property: 'og:description', content: '从零搭建智能体：参照 DeepSeek Harness，从概念到发布，亲手搭出你的 v0.1 → v0.2' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://lili-sxdt.github.io/mini-harness/' }],
+    ['meta', { property: 'og:image', content: 'https://lili-sxdt.github.io/mini-harness/share.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+  ],
   // 关闭内容区顶部"本节导航"下拉（节导航已并入左侧三级侧栏）
   outline: false,
   locales: {
