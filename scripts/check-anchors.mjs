@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const LEARN = path.join(__dirname, '..', 'docs', 'learn')
+const EN_LEARN = path.join(__dirname, '..', 'docs', 'en', 'learn')
 
 const MOJI = /mmport|tmtle|awamt|鈥|鎴|鑻|绗|鏄|锛|涓/
 
@@ -51,6 +52,29 @@ for (const sub of ['part-pre', 'part-0', 'part-1', 'part-2', 'part-3', 'part-4',
       const c = fs.readFileSync(fp, 'utf8')
       if (MOJI.test(c)) errs.push('疑似乱码')
       if (errs.length) bad.push(`practice/${sub}/${f}: ${errs.join(' | ')}`)
+    }
+  }
+  // en 镜像：主线 + 实践线
+  const enDir = path.join(EN_LEARN, sub)
+  if (fs.existsSync(enDir)) {
+    for (const f of fs.readdirSync(enDir).filter((x) => x.endsWith('.md'))) {
+      const fp = path.join(enDir, f)
+      total++
+      const errs = checkFile(fp)
+      const c = fs.readFileSync(fp, 'utf8')
+      if (MOJI.test(c)) errs.push('疑似乱码')
+      if (errs.length) bad.push(`en/${sub}/${f}: ${errs.join(' | ')}`)
+    }
+  }
+  const enPracDir = path.join(EN_LEARN, 'practice', sub)
+  if (fs.existsSync(enPracDir)) {
+    for (const f of fs.readdirSync(enPracDir).filter((x) => x.endsWith('.md'))) {
+      const fp = path.join(enPracDir, f)
+      total++
+      const errs = checkFile(fp)
+      const c = fs.readFileSync(fp, 'utf8')
+      if (MOJI.test(c)) errs.push('疑似乱码')
+      if (errs.length) bad.push(`en/practice/${sub}/${f}: ${errs.join(' | ')}`)
     }
   }
 }
