@@ -38,7 +38,7 @@ jobs:
 
       - name: Commit and push (deploy triggers on push)
         run: |
-          git add docs/upstream-version.md state/last_seen.json
+          git add docs/upstream-version.md docs/en/upstream-version.md state/last_seen.json
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"

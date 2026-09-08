@@ -22,7 +22,22 @@ NPM_PKG = "@deepseek-ai/dsh"
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 STATE = os.path.join(ROOT, "state", "last_seen.json")
-VLIST = os.path.join(ROOT, "docs", "upstream-version.md")
+
+# 两个语言目标：zh 与 en。每个含文件路径 + 表格头 + 行模板 + "查看"列文案。
+TARGETS = [
+    {
+        "path": os.path.join(ROOT, "docs", "upstream-version.md"),
+        "lang": "zh",
+        "header": ["版本号", "GitHub 发布", "npm 发布", "更新说明"],
+        "view_label": "点击查看",
+    },
+    {
+        "path": os.path.join(ROOT, "docs", "en", "upstream-version.md"),
+        "lang": "en",
+        "header": ["Version", "GitHub release", "npm release", "Notes"],
+        "view_label": "View",
+    },
+]
 
 SAMPLE = [
     {"tag_name": "dsh-v0.1.3-alpha.1", "published_at": "2026-09-02T10:00:00Z",
@@ -97,16 +112,16 @@ def get_npm_times(sample):
     return {v: fmt_date(t) for v, t in times.items()}
 
 
-def make_row(rel, npm_times):
+def make_row(rel, npm_times, view_label):
     tag = rel.get("tag_name", "?")
     date = fmt_date(rel.get("published_at", ""))
     link = "https://github.com/{0}/releases/tag/{1}".format(REPO, tag)
     # 匹配 npm 发布时间：优先规范化版本，其次原 tag
     npm_date = npm_times.get(norm_version(tag)) or npm_times.get(tag) or "—"
-    return "| [{0}]({1}) | {2} | {3} | [点击查看]({1}) |".format(tag, link, date, npm_date)
+    return "| [{0}]({1}) | {2} | {3} | [{4}]({1}) |".format(tag, link, date, npm_date, view_label)
 
 
-def insert_rows(path, rows):
+def insert_rows(path, rows, header):
     with open(path, encoding="utf-8") as f:
         text = f.read()
     existing = set(re.findall(r"^\|\s*\[([^\]]+)\]", text, re.M))
@@ -120,6 +135,22 @@ def insert_rows(path, rows):
         raise RuntimeError("upstream-version.md 找不到表格分隔行（| --- | --- |）")
     lines[sep_idx + 1:sep_idx + 1] = new_rows
     return True, "\n".join(lines)
+
+
+def ensure_table(path, header, view_label, first_row):
+    """若目标文件缺表格（en 页可能只有说明、无表格），则补一个含表头+分隔行+首行的表格。
+    优先插入到 <!-- AUTO-INSERT-HERE --> 标记之后；无标记则追加到页面末尾。"""
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    if re.search(r"^\|\s*:?-{2,}", text, re.M):
+        return text  # 已有表格，不动
+    head = "| {0} |".format(" | ".join(header))
+    sep = "| " + " | ".join(["---"] * len(header)) + " |"
+    table = head + "\n" + sep + "\n" + first_row + "\n"
+    m = re.search(r"<!--\s*AUTO-INSERT-HERE[^>]*-->", text)
+    if m:
+        return text[:m.end()] + "\n\n" + table + text[m.end():]
+    return text.rstrip() + "\n\n" + table
 
 
 def get_releases(sample):
@@ -173,25 +204,39 @@ def main():
         return 0
 
     print("[detect] 发现 {0} 个新版本：{1}".format(len(new), ", ".join(r["tag_name"] for r in new)))
-    rows = [make_row(rel, npm_times) for rel in new]
 
     if not args.apply:
         print("[dry-run] 将插入：")
-        for r in rows:
-            print("   ", r)
+        for r in new:
+            row_zh = make_row(r, npm_times, TARGETS[0]["view_label"])
+            print("   ", row_zh)
         print("[dry-run] 加 --apply 才会写入。")
         return 0
 
-    changed, new_text = insert_rows(VLIST, rows)
-    if not changed:
+    any_changed = False
+    for tgt in TARGETS:
+        # en 目标页若是"无表格"的 stub，先补一个空表格（含首行），再正常插入
+        row = make_row(new[0], npm_times, tgt["view_label"])
+        clean = ensure_table(tgt["path"], tgt["header"], tgt["view_label"], row)
+        if clean != open(tgt["path"], encoding="utf-8").read():
+            with open(tgt["path"], "w", encoding="utf-8") as f:
+                f.write(clean)
+            any_changed = True
+        rows = [make_row(rel, npm_times, tgt["view_label"]) for rel in new]
+        changed, new_text = insert_rows(tgt["path"], rows, tgt["header"])
+        if changed:
+            with open(tgt["path"], "w", encoding="utf-8") as f:
+                f.write(new_text)
+            any_changed = True
+            print("[write] {0}: 插入 {1} 行".format(tgt["lang"], len(rows)))
+
+    if not any_changed:
         print("[no-op] 新版本已在列表中，跳过")
     else:
-        with open(VLIST, "w", encoding="utf-8") as f:
-            f.write(new_text)
         state["latest_tag"] = latest
         state["seen_tags"] = sorted(seen | {r["tag_name"] for r in new})
         save_state(state)
-        print("[write] 已插入 {0} 行；latest={1}".format(len(rows), latest))
+        print("[write] 完成；latest={0}".format(latest))
     return 0
 
 

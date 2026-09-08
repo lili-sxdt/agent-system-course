@@ -24,6 +24,9 @@ features:
   - icon: 🚀
     title: All the way to v0.2
     details: Not just build it — ship it, collect feedback, verify, maintain, change, and re-release, walking the full real lifecycle.
+  - icon: 📡
+    title: Follow upstream activity
+    details: A dedicated "Upstream" page auto-syncs the latest DeepSeek-Harness releases daily, so you can quickly see what DSH is working on.
 ---
 
 ## About this course
@@ -33,4 +36,4 @@ features:
 - Every main chapter uses a five-part pattern: **plain-language intro → minimal runnable example → professional definition → hands-on exercise → acceptance checklist**.
 - **Tech stack**: Node + TypeScript (the same stack as DSH, so concepts map directly onto the DSH source).
 
-**Quick links**: [Prep](/en/learn/part-pre/00) · [Start reading](/en/learn/part-0/01) · [Practice](/en/learn/practice/part-1/01) · [中文版](/)
+**Quick links**: [Prep](/en/learn/part-pre/00) · [Start reading](/en/learn/part-0/01) · [Practice](/en/learn/practice/part-1/01) · [Upstream](/en/upstream-version) · [中文版](/)

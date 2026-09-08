@@ -24,6 +24,9 @@ features:
   - icon: 🚀
     title: 一路到 v0.2
     details: 不止造出来，还会发出去、收反馈、验证、维护、再发布——走完真实生命周期。
+  - icon: 📡
+    title: 跟上上游动态
+    details: 独立的「上游版本」页每天自动同步 DeepSeek-Harness 官方最新版本，快速了解 DSH 在更新什么。
 ---
 
 ## 关于本课
@@ -33,4 +36,4 @@ features:
 - 主线每章用五件套：**大白话引入 → 最小可运行示例 → 专业定义 → 动手练 → 验收清单**。
 - **技术栈**：Node + TypeScript（与 DSH 同栈，概念直接对应 DSH 源码）。
 
-**快捷入口**：[预备](/learn/part-pre/00) · [开始阅读](/learn/part-0/01) · [实践](/learn/practice/part-1/01) · [English](/en/)
+**快捷入口**：[预备](/learn/part-pre/00) · [开始阅读](/learn/part-0/01) · [实践](/learn/practice/part-1/01) · [上游版本](/upstream-version) · [English](/en/)
