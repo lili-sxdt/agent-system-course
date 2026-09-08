@@ -15,6 +15,7 @@ const chapter = (num, shortName, link) => ({
 })
 
 export default defineConfig({
+  base: '/agent-system-course/',
   lang: 'zh-CN',
   title: 'Agent 系统课程',
   description: '从零到能自己编写一个 Agent Harness 系统，并发布维护到 v0.2',
