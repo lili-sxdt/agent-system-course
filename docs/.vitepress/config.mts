@@ -30,7 +30,14 @@ const PART_TITLES: Record<number, string> = {
   5: '多智能体与编排', 6: '把它变成真产品', 7: '工程化与规范', 8: '结课项目', 9: '发布后生命周期',
 }
 
-function partLabel(p: number): string {
+const PART_TITLES_EN: Record<number, string> = {
+  0: 'Introduction', 1: 'Foundation', 2: 'Abstraction & Container', 3: 'Three Things You Write',
+  4: 'Growing the System', 5: 'Multi-Agent & Orchestration', 6: 'Becoming a Product',
+  7: 'Engineering & Standards', 8: 'Capstone Project', 9: 'Post-Release Lifecycle',
+}
+
+function partLabel(p: number, en = false): string {
+  if (en) return `Part ${p} · ${PART_TITLES_EN[p] ?? ''}`
   const num = p === 0 ? '〇' : String(p)
   return `第${num}部分 · ${PART_TITLES[p] ?? ''}`
 }
@@ -87,7 +94,7 @@ function genLearnSidebar(langSubDir: string) {
           })),
         }
       })
-    groups.push({ text: partLabel(p), collapsed: true, items: chapters })
+    groups.push({ text: partLabel(p, langSubDir === 'en'), collapsed: true, items: chapters })
   }
   return groups
 }
@@ -125,13 +132,27 @@ const zhThemeConfig = {
   lastUpdated: true,
 }
 
-// ---------- 英文（/en/，占位） ----------
+// ---------- 英文（/en/） ----------
 const enThemeConfig = {
   nav: [
     { text: 'Home', link: '/en/' },
+    { text: 'Start reading', link: '/en/learn/part-0/01' },
+    { text: 'Appendix', link: '/en/appendix/a-glossary' },
     { text: '中文版', link: '/' },
   ],
   sidebar: {
+    '/en/learn/': genLearnSidebar('en'),
+    '/en/appendix/': [
+      {
+        text: 'Appendix',
+        items: [
+          { text: 'A · Glossary', link: '/en/appendix/a-glossary' },
+          { text: 'B · API & Config', link: '/en/appendix/b-api-config' },
+          { text: 'C · DSH Source Lookup', link: '/en/appendix/c-dsh-source-index' },
+          { text: 'D · Differentiation', link: '/en/appendix/d-differentiation' },
+        ],
+      },
+    ],
     '/en/': [
       {
         text: 'English Course',
@@ -146,8 +167,8 @@ const enThemeConfig = {
   search: { provider: 'local' },
   docFooter: { prev: 'Previous', next: 'Next' },
   footer: {
-    message: 'English version is being translated · 中文版请见 /',
-    copyright: '© 2026 Agent 系统课程',
+    message: `Content updated ${lastUpdated()} · Based on DeepSeek Harness (MIT License, Copyright © 2026 DeepSeek) for learning and derivation`,
+    copyright: '© 2026 Agent System Course',
   },
   lastUpdated: true,
 }

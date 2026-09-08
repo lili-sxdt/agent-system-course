@@ -1,16 +1,34 @@
-# Agent System Course (English)
-
-> This course is **currently being translated into English**. The complete **Chinese version** is available below.
-
-The English translation is in progress. In the meantime, you can read the full course in Chinese.
-
-- [**中文版 · Chinese (full)**](/)
-- [中文课程目录 · Catalog](/course-catalog-v3)
-- [DeepSeek Harness (upstream)](https://github.com/deepseek-ai/deepseek-harness)
-
+---
+layout: home
+hero:
+  name: Agent System Course
+  text: Build an Agent System from Zero
+  tagline: Teach yourself, from zero, to write an agent harness system like DeepSeek Harness, and publish & maintain it up to v0.2.
+  actions:
+    - theme: brand
+      text: Start reading
+      link: /en/learn/part-0/01
+    - theme: alt
+      text: 中文版
+      link: /
+features:
+  - icon: 🧩
+    title: From using to writing
+    details: Start with a minimal runnable agent, then understand the plug-in harness, sandboxing, session memory, and multi-agent orchestration.
+  - icon: 🛠️
+    title: Plain and professional
+    details: Plain-language explanations of the principles, with professional standards throughout; every chapter ships runnable examples and acceptance checks.
+  - icon: 🚀
+    title: All the way to v0.2
+    details: Not just build it — ship it, collect feedback, verify, maintain, change, and re-release, walking the full real lifecycle.
 ---
 
-**About this course** — 从零到能自己编写一个 Agent Harness 系统，并发布维护到 v0.2。
-*(Teach yourself, from zero, to write an agent harness system like DeepSeek Harness, and publish & maintain it up to v0.2.)*
+## About this course
 
-> ⚠️ This site is based on the open-source **DeepSeek Harness** (MIT License, Copyright © 2026 DeepSeek) for learning and derivations.
+- **10 parts · 48 chapters**, from concepts to a publishable v0.1 mini-harness and its post-release lifecycle (v0.1 → v0.2).
+- Every chapter uses a five-part pattern: **plain-language intro → minimal runnable example → professional definition → hands-on exercise → acceptance checklist**.
+- **Tech stack**: Node + TypeScript (the same stack as DSH, so concepts map directly onto the DSH source).
+
+**Quick links**: [Start reading](/en/learn/part-0/01) · [Glossary](/en/appendix/a-glossary) · [中文版](/)
+
+> ⚠️ This site is based on the open-source **DeepSeek Harness** (MIT License, Copyright © 2026 DeepSeek) for learning and derivation. It is a third-party, unofficial course and does not represent the upstream project.
